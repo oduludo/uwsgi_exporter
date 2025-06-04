@@ -4,6 +4,8 @@ on:
   push:
     tags:
       - '*'
+    branches:
+      - '*'
 
 jobs:
   build:
@@ -26,6 +28,7 @@ jobs:
             IFS=':' read -r -a array <<< "${name_tag}"
             name="${array[0]}"
             tag="${{ github.ref_name }}"
+            echo "RETAG: ghcr.io/oduludo/${name}:${tag}"
             docker tag ${img} "ghcr.io/oduludo/${name}:${tag}"
             docker push "ghcr.io/oduludo/${name}:${tag}"
           done
