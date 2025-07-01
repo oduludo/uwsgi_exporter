@@ -1,6 +1,6 @@
 module github.com/timonwong/uwsgi_exporter
 
-go 1.24
+go 1.24.4
 
 require (
 	github.com/alecthomas/assert/v2 v2.11.0
