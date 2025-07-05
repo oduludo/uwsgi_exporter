@@ -5,6 +5,3 @@ io.WriteString
 (net/http.ResponseWriter).Write
 // No need to check for errors on server's shutdown.
 (*net/http.Server).Shutdown
-
-// Never check for logger errors.
-(github.com/go-kit/log.Logger).Log

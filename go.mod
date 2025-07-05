@@ -5,7 +5,6 @@ go 1.24.4
 require (
 	github.com/alecthomas/assert/v2 v2.11.0
 	github.com/alecthomas/kingpin/v2 v2.4.0
-	github.com/go-kit/log v0.2.1
 	github.com/prometheus/client_golang v1.22.0
 	github.com/prometheus/client_model v0.6.2
 	github.com/prometheus/common v0.64.0
@@ -19,7 +18,6 @@ require (
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/coreos/go-systemd/v22 v22.5.0 // indirect
-	github.com/go-logfmt/logfmt v0.5.1 // indirect
 	github.com/hexops/gotextdiff v1.0.3 // indirect
 	github.com/jpillora/backoff v1.0.0 // indirect
 	github.com/mdlayher/socket v0.4.1 // indirect
