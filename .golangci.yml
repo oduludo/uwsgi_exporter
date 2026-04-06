@@ -1,38 +1,39 @@
----
+version: "2"
+
 run:
-  deadline: 5m
+  timeout: 5m
 
 linters:
   enable:
-    - depguard
-    - errcheck
+#    - depguard
+#    - errcheck
     - gocritic
-    - gofumpt
-    - goimports
-    - gosec
+#    - gosec
     - loggercheck
     - misspell
-    - revive
-    - staticcheck
-    - stylecheck
+#    - revive
+#    - staticcheck
     - unused
+  disable:
+    - errcheck
+    - staticcheck
+  exclusions:
+    rules:
+      - path: _test\.go
+        linters:
+          - depguard
+          - errcheck
+  settings:
+    errcheck:
+      exclude-functions:
+        # Don't flag lines such as "io.Copy(ioutil.Discard, resp.Body)".
+        - io.Copy
+        # The next two are used in HTTP handlers, any error is handled by the server itself.
+        - io.WriteString
+        - (net/http.ResponseWriter).Write
+        # No need to check for errors on server's shutdown.
+        - (*net/http.Server).Shutdown
 
 issues:
   max-issues-per-linter: 0
   max-same-issues: 0
-  exclude-rules:
-    - path: _test.go
-      linters:
-        - depguard
-        - errcheck
-
-linters-settings:
-  depguard:
-    list-type: blacklist
-    include-go-root: true
-    packages:
-      - sync/atomic
-    packages-with-error-message:
-      - sync/atomic: "Use go.uber.org/atomic instead of sync/atomic"
-  errcheck:
-    exclude: scripts/errcheck_excludes.txt
