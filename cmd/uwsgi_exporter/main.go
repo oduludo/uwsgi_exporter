@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/prometheus/common/version"
 	"io"
 	"log/slog"
 	"net/http"
@@ -11,6 +10,8 @@ import (
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/prometheus/common/version"
 
 	"github.com/alecthomas/kingpin/v2"
 	"github.com/prometheus/client_golang/prometheus"

@@ -24,9 +24,5 @@ jobs:
       - name: Install snmp_exporter/generator dependencies
         run: sudo apt-get update && sudo apt-get -y install libsnmp-dev
         if: github.repository == 'prometheus/snmp_exporter'
-      - name: Install linter
+      - name: Lint
         uses: golangci/golangci-lint-action@v9
-        with:
-          install-only: true
-      - name: Verify Go version and golangci-lint support
-        run: golangci-lint version
